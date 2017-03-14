@@ -1,3 +1,17 @@
 <h1>
   {{title}}
 </h1>
+
+<ul>
+  <li *ngFor="let lane of lanes">
+    <p>{{lane.name}}</p>
+    <ul>
+      <li *ngFor="let card of lane.cards">
+        <p>#{{card.number}}</p>
+        <p>{{card.name}}</p>
+        <p>{{card.lane}}</p>
+        <p>{{card.owner}}</p>
+      </li>
+    </ul>
+  </li>
+</ul>
