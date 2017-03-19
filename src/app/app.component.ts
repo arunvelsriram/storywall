@@ -1,17 +1,7 @@
 import { Component } from '@angular/core';
 
-export class Card {
-  number: number;
-  name: string;
-  lane: string;
-  owner: string;
-  another_owner: string;
-}
-
-export class Lane {
-  name: string;
-  cards: Card[];
-}
+import { Card } from './card';
+import { Lane } from './lane';
 
 const DEV_CARDS: Card[] = [
   {
