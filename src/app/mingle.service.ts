@@ -4,7 +4,7 @@ import { Card } from './card';
 import { Lane } from './lane';
 import { CARDS } from './mock-cards';
 
-const AVAILABLE_LANES = ['DEV', 'QA'];
+const AVAILABLE_LANES = ['Dev', 'QA'];
 
 @Injectable()
 export class MingleService {

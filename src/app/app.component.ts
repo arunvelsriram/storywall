@@ -1,59 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Card } from './card';
 import { Lane } from './lane';
-
-const DEV_CARDS: Card[] = [
-  {
-    number: 3327,
-    name: 'Some story',
-    lane: 'Dev',
-    owner: 'Arun',
-    another_owner: 'Prasanth'
-  },
-  {
-    number: 3328,
-    name: 'Some other story',
-    lane: 'Dev',
-    owner: 'Saran',
-    another_owner: 'Vaishu'
-  }
-]
-
-const QA_CARDS: Card[] = [
-  {
-    number: 3329,
-    name: 'Some story',
-    lane: 'QA',
-    owner: 'Poornima',
-    another_owner: 'Sravanthi'
-  },
-  {
-    number: 3330,
-    name: 'Some other story',
-    lane: 'QA',
-    owner: 'Poornima',
-    another_owner: 'Sravanthi'
-  }
-]
-
-const LANES: Lane[] = [
-  {
-    name: 'Dev',
-    cards: DEV_CARDS
-  },
-  {
-    name: 'QA',
-    cards: QA_CARDS
-  }
-]
+import { MingleService } from './mingle.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [MingleService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app works!';
-  lanes = LANES;
+  lanes: string[];
+  cards: Card[];
+
+  constructor(private mingleService: MingleService) { }
+
+  ngOnInit(): void {
+    this.lanes = this.mingleService.getAllLaneNames();
+    this.cards = this.mingleService.getCards();
+  }
 }

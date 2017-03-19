@@ -21,7 +21,7 @@ describe('MingleService', () => {
   }));
 
   it('should get the name of all the available lanes', inject([MingleService], (service: MingleService) => {
-    expect(service.getAllLaneNames()).toEqual(['DEV', 'QA']);
+    expect(service.getAllLaneNames()).toEqual(['Dev', 'QA']);
   }));
 
 });

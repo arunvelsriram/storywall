@@ -4,9 +4,9 @@
 
 <ul>
   <li *ngFor="let lane of lanes">
-    <p>{{lane.name}}</p>
+    <p>{{lane}}</p>
     <ul>
-      <li *ngFor="let card of lane.cards">
+      <li *ngFor="let card of cards | LanePipe:lane">
         <p>#{{card.number}}</p>
         <p>{{card.name}}</p>
         <p>{{card.lane}}</p>
