@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LanePipe } from './lane.pipe';
+import { MingleService } from './mingle.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { LanePipe } from './lane.pipe';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [MingleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

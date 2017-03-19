@@ -4,6 +4,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 import { LanePipe } from './lane.pipe';
+import { MingleService } from './mingle.service';
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -12,6 +13,7 @@ describe('AppComponent', () => {
         AppComponent,
         LanePipe
       ],
+      providers: [MingleService]
     });
     TestBed.compileComponents();
   });
