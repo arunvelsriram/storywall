@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Card } from './card';
-import { Lane } from './lane';
 import { MingleService } from './mingle.service';
 
 @Component({

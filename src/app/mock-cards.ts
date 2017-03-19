@@ -1,3 +1,5 @@
+import { Card } from './card';
+
 const DEV_CARDS: Card[] = [
   {
     number: 3327,
