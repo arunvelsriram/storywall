@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   constructor(private mingleService: MingleService) { }
 
   ngOnInit(): void {
-    this.lanes = this.mingleService.getAllLaneNames();
+    this.lanes = this.mingleService.getLanes();
     this.cards = this.mingleService.getCards();
   }
 }

@@ -12,7 +12,7 @@ export class MingleService {
     return CARDS;
   }
 
-  getAllLaneNames(): string[] {
+  getLanes(): string[] {
     return AVAILABLE_LANES;
   }
 }

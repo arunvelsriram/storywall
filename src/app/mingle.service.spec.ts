@@ -20,8 +20,8 @@ describe('MingleService', () => {
     expect(service.getCards()).toEqual(CARDS);
   }));
 
-  it('should get the name of all the available lanes', inject([MingleService], (service: MingleService) => {
-    expect(service.getAllLaneNames()).toEqual(['Dev', 'QA']);
+  it('should get all the available lanes', inject([MingleService], (service: MingleService) => {
+    expect(service.getLanes()).toEqual(['Dev', 'QA']);
   }));
 
 });
