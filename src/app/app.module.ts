@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { LanePipe } from './lane.pipe';
 import { MingleService } from './mingle.service';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +18,8 @@ import { MingleService } from './mingle.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [MingleService],
   bootstrap: [AppComponent]

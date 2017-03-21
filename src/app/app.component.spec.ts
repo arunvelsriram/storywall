@@ -2,13 +2,21 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { HttpModule } from '@angular/http';
 
 import { LanePipe } from './lane.pipe';
 import { MingleService } from './mingle.service';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+      	HttpModule,
+      	InMemoryWebApiModule.forRoot(InMemoryDataService)
+      ],
       declarations: [
         AppComponent,
         LanePipe

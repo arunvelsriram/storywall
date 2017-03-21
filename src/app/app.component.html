@@ -5,7 +5,7 @@
 <ul>
   <li *ngFor="let lane of lanes">
     <p>{{lane}}</p>
-    <ul>
+    <ul *ngIf="cards">
       <li *ngFor="let card of cards | LanePipe:lane">
         <p>#{{card.number}}</p>
         <p>{{card.name}}</p>

@@ -1,17 +1,31 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
 
 import { Card } from './card';
-import { CARDS } from './mock-cards';
 
 const AVAILABLE_LANES = ['Dev', 'QA'];
 
 @Injectable()
 export class MingleService {
-  getCards(): Card[] {
-    return CARDS;
-  }
+	private cardsUrl = 'api/cards';
 
-  getLanes(): string[] {
-    return AVAILABLE_LANES;
-  }
+	constructor(private http: Http) { }
+
+	getCards(): Promise<Card[]> {
+		return this.http.get(this.cardsUrl)
+			.toPromise()
+			.then(response => response.json().data as Card[])
+			.catch(this.handleError);
+	}
+
+	getLanes(): string[] {
+		return AVAILABLE_LANES;
+	}
+
+	private handleError(error: any): Promise<any> {
+		console.error('An error occurred', error);
+		return Promise.reject(error.message || error);
+	}
 }
