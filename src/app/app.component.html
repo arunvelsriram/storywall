@@ -6,7 +6,7 @@
   <li *ngFor="let lane of lanes">
     <p>{{lane}}</p>
     <ul *ngIf="cards">
-      <li *ngFor="let card of cards | LanePipe:lane">
+      <li *ngFor="let card of cards | lane:lane">
         <p>#{{card.number}}</p>
         <p>{{card.name}}</p>
         <p>{{card.lane}}</p>

@@ -1,13 +1,13 @@
-import { Pipe } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'LanePipe'
+  name: 'lane'
 })
-export class LanePipe {
-  
-  transform(items, args) {
+export class LanePipe implements PipeTransform {
+
+  transform(value: any, args?: any): any {
     let laneName = args;
-    return items.filter(card => {
+    return value.filter(card => {
       return card.lane === laneName;
     });
   }
