@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.lanes = this.mingleService.getLanes();
-    this.mingleService.getCards().then(cards => this.cards = cards);
+    this.mingleService.getCards().subscribe(cards => {
+      this.cards = cards;
+    });
   }
 }

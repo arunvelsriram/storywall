@@ -1,31 +1,27 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Jsonp, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 
 import { Card } from './card';
+import { environment } from '../environments/environment';
 
 const AVAILABLE_LANES = ['Dev', 'QA'];
 
 @Injectable()
 export class MingleService {
-	private cardsUrl = 'api/cards';
+	constructor(private jsonp: Jsonp) { }
 
-	constructor(private http: Http) { }
-
-	getCards(): Promise<Card[]> {
-		return this.http.get(this.cardsUrl)
-			.toPromise()
-			.then(response => response.json().data as Card[])
-			.catch(this.handleError);
+	getCards(): Observable<Card[]> {
+		return this.jsonp.get(`${environment.mingleApiUrl}/cards/execute_mql.json?mql=SELECT%20number,%20name,%20status,%20owner,%20%27owner%202%27&callback=JSONP_CALLBACK`)
+			.map((response: Response) => response.json())
+			.map(cards => cards.map(card => {
+				return new Card(card['Number'], card['Name'], card['Status'], card['Owner'], card['Owner 2']);
+			}));
 	}
 
 	getLanes(): string[] {
 		return AVAILABLE_LANES;
-	}
-
-	private handleError(error: any): Promise<any> {
-		console.error('An error occurred', error);
-		return Promise.reject(error.message || error);
 	}
 }

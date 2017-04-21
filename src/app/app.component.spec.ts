@@ -2,26 +2,40 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
+import { Card } from './card';
 import { LanePipe } from './lane.pipe';
 import { MingleService } from './mingle.service';
 
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+class MingleServiceMock {
+  getCards(): Observable<Card[]> {
+    const cards: Card[] = new Array<Card>(
+      new Card(1000, 'Some card', 'Dev', 'Arun', 'JK'),
+      new Card(1010, 'Another card', 'QA', 'Sravanthi', 'Poornima')
+    );
+
+    return Observable.of(cards);
+  }
+
+  getLanes(): string[] {
+    return ['Dev', 'QA'];
+  }
+}
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-      	HttpModule,
-      	InMemoryWebApiModule.forRoot(InMemoryDataService)
-      ],
       declarations: [
         AppComponent,
         LanePipe
       ],
-      providers: [MingleService]
+      providers: [
+        {
+          provide: MingleService,
+          useClass: MingleServiceMock
+        }
+      ]
     });
     TestBed.compileComponents();
   });
