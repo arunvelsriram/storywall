@@ -13,7 +13,7 @@ export class MingleService implements IMingleService {
 	constructor(private jsonp: Jsonp) { }
 
 	getCards(): Observable<Card[]> {
-		return this.jsonp.get(`${environment.mingleApiUrl}/cards/execute_mql.json?mql=SELECT%20number,%20name,%20status,%20owner,%20%27owner%202%27&callback=JSONP_CALLBACK`)
+		return this.jsonp.get(`${environment.mingleApiUrl}?mql=${this.mql()}&callback=JSONP_CALLBACK`)
 			.map((response: Response) => response.json())
 			.map(cards => cards.map(card => {
 				return new Card(card['Number'], card['Name'], card['Status'], card['Owner'], card['Owner 2']);
@@ -22,5 +22,9 @@ export class MingleService implements IMingleService {
 
 	getLaneNames(): String[] {
 		return environment.laneNames;
+	}
+
+	private mql(): String {
+		return encodeURI(environment.mql).replace(/&/g, '%26');
 	}
 }
