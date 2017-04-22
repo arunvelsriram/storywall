@@ -14,10 +14,17 @@ export class MingleService implements IMingleService {
 	constructor(private jsonp: Jsonp, private mqlEncoder: MqlEncoderService) { }
 
 	getCards(): Observable<Card[]> {
+		const cardProperties = environment.cardProperties;
 		return this.jsonp.get(this.buildUrl().toString())
 			.map((response: Response) => response.json())
 			.map(cards => cards.map(card => {
-				return new Card(card['Number'], card['Name'], card['Status'], card['Owner'], card['Owner 2']);
+				return new Card(
+					card[cardProperties.number],
+					card[cardProperties.name],
+					card[cardProperties.lane],
+					card[cardProperties.owner],
+					card[cardProperties.anotherOwner]
+				);
 			}));
 	}
 

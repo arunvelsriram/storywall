@@ -8,5 +8,6 @@ export const environment = {
   production: false,
   mingleApiUrl: CONFIG.mingleApiUrl,
   laneNames: CONFIG.laneNames,
-  mql: CONFIG.mql
+  mql: CONFIG.mql,
+  cardProperties: CONFIG.cardProperties
 };
