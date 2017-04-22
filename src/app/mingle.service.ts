@@ -4,11 +4,12 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
 
+import { IMingleService } from './imingle-service';
 import { Card } from './card';
 import { environment } from '../environments/environment';
 
 @Injectable()
-export class MingleService {
+export class MingleService implements IMingleService {
 	constructor(private jsonp: Jsonp) { }
 
 	getCards(): Observable<Card[]> {
@@ -19,7 +20,7 @@ export class MingleService {
 			}));
 	}
 
-	getLaneNames(): string[] {
+	getLaneNames(): String[] {
 		return environment.laneNames;
 	}
 }

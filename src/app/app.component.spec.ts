@@ -6,9 +6,10 @@ import { Observable } from 'rxjs/Rx';
 
 import { Card } from './card';
 import { LanePipe } from './lane.pipe';
+import { IMingleService } from './imingle-service';
 import { MingleService } from './mingle.service';
 
-class MingleServiceMock {
+class MingleServiceMock implements IMingleService {
   getCards(): Observable<Card[]> {
     const cards: Card[] = new Array<Card>(
       new Card(1000, 'Some card', 'Dev', 'Arun', 'JK'),

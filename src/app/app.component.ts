@@ -10,7 +10,7 @@ import { MingleService } from './mingle.service';
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
-  lanes: string[];
+  lanes: String[];
   cards: Card[];
 
   constructor(private mingleService: MingleService) { }
