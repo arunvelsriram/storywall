@@ -7,8 +7,6 @@ import 'rxjs/add/operator/map';
 import { Card } from './card';
 import { environment } from '../environments/environment';
 
-const AVAILABLE_LANES = ['Dev', 'QA'];
-
 @Injectable()
 export class MingleService {
 	constructor(private jsonp: Jsonp) { }
@@ -21,7 +19,7 @@ export class MingleService {
 			}));
 	}
 
-	getLanes(): string[] {
-		return AVAILABLE_LANES;
+	getLaneNames(): string[] {
+		return environment.laneNames;
 	}
 }

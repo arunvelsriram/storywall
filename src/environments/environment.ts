@@ -6,5 +6,6 @@ import { CONFIG } from './config';
 
 export const environment = {
   production: false,
-  mingleApiUrl: CONFIG.mingleApiUrl
+  mingleApiUrl: CONFIG.mingleApiUrl,
+  laneNames: CONFIG.laneNames
 };

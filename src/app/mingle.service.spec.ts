@@ -84,8 +84,8 @@ describe('MingleService', () => {
     });
   });
 
-  it('should get all the available lanes', () => {
-    const lanes = service.getLanes();
+  it('should get name of all the available lanes', () => {
+    const lanes = service.getLaneNames();
     expect(lanes).not.toEqual([]);
     expect(lanes[0]).toEqual(jasmine.any(String));
   });

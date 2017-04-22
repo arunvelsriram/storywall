@@ -18,7 +18,7 @@ class MingleServiceMock {
     return Observable.of(cards);
   }
 
-  getLanes(): string[] {
+  getLaneNames(): string[] {
     return ['Dev', 'QA'];
   }
 }
