@@ -6,6 +6,7 @@ import { JsonpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { LanePipe } from './lane.pipe';
 import { MingleService } from './mingle.service';
+import { MqlEncoderService } from './mql-encoder.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { MingleService } from './mingle.service';
     FormsModule,
     JsonpModule
   ],
-  providers: [MingleService],
+  providers: [
+    MingleService,
+    MqlEncoderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

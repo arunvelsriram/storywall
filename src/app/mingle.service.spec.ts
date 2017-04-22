@@ -19,6 +19,7 @@ import {
 
 import { MingleService } from './mingle.service';
 import { Card } from './card';
+import { MqlEncoderService } from './mql-encoder.service';
 
 describe('MingleService', () => {
   let backend: MockBackend;
@@ -27,6 +28,7 @@ describe('MingleService', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [
+        MqlEncoderService,
         BaseRequestOptions,
         MockBackend,
         MingleService,
