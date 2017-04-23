@@ -1,15 +1,30 @@
 export const CONFIG = {
+	// Mimngle MQL API URL
 	mingleApiUrl: 'https://tw-digital.mingle.thoughtworks.com/api/v2/projects/tw_dot_com/cards/execute_mql.json',
+
+	// Lanes in your Mingle wall
 	laneNames: ['Next', 'A & D', 'A & D done', 'Dev', 'Dev done', 'QA', 'QA done', 'Feature Toggle Off', 'Blocked on external dependencies', 'Blocked'],
+
+	// Write a MQL query to return cards (that are shown in your current Mingle wall)
+	// https://www.thoughtworks.com/mingle/docs/mql_reference.html
+	// Example:
+	// 	`SELECT number, name, status, owner, 'owner 2'
+	//  	WHERE type in ('Story', 'Defect', 'Power Ups', 'Spike')
+	// 		AND status in ('Next', 'A & D', 'A & D done', 'Dev', 'Dev done', 'QA', 'QA done', 'Feature Toggle Off', 'Blocked on external dependencies', 'Blocked')
+	// 		ORDER BY PROJECT_CARD_RANK`
+	// Note:
+	// 	"ORDER BY PROJECT_CARD_RANK" is necessary to get all cards in priority order
 	mql: `SELECT number, name, status, owner, 'owner 2'
 		WHERE type in ('Story', 'Defect', 'Power Ups', 'Spike')
 		AND status in ('Next', 'A & D', 'A & D done', 'Dev', 'Dev done', 'QA', 'QA done', 'Feature Toggle Off', 'Blocked on external dependencies', 'Blocked')
 		ORDER BY PROJECT_CARD_RANK`,
+
 	// Project specific card properties
 	// Storywall requires each cards number, name, lane it belongs to, and pair names
 	// Out of which property name for card number and card name are fixed
 	// Visit Card properties page on your Mingle account to find out the property name for Lane and Pair names
 	cardProperties: {
+
 		// Property name for card number
 		// You don't have to modify this
 		number: 'Number',
