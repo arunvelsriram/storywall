@@ -15,6 +15,7 @@ export class MingleService implements IMingleService {
 
 	getCards(): Observable<Card[]> {
 		const cardProperties = environment.cardProperties;
+
 		return this.jsonp.get(this.buildUrl().toString())
 			.map((response: Response) => response.json())
 			.map(cards => cards.map(card => {
@@ -25,7 +26,8 @@ export class MingleService implements IMingleService {
 					card[cardProperties.owner],
 					card[cardProperties.anotherOwner]
 				);
-			}));
+			}))
+			.catch(this.handleError);
 	}
 
 	getLaneNames(): String[] {
@@ -35,5 +37,17 @@ export class MingleService implements IMingleService {
 	private buildUrl(): String {
 		const encodedMql = this.mqlEncoder.encode(environment.mql);
 		return `${environment.mingleApiUrl}?mql=${encodedMql}&callback=JSONP_CALLBACK`;
+	}
+
+	private handleError(error: Response | any) {
+		let errMsg: string;
+  	if (error instanceof Response) {
+    	const body = error.json() || '';
+    	const err = body.error || JSON.stringify(body);
+    	errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+  	} else {
+    	errMsg = error.message ? error.message : error.toString();
+  	}
+  	return Observable.throw(errMsg);
 	}
 }

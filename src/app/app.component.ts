@@ -19,6 +19,10 @@ export class AppComponent implements OnInit {
     this.lanes = this.mingleService.getLaneNames();
     this.mingleService.getCards().subscribe(cards => {
       this.cards = cards;
+    }, error => {
+      console.error(error);
+      console.error('Please login to Mingle!');
+      console.error('If you are already logged in pease check the configuration (config.ts).');
     });
   }
 }

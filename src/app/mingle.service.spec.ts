@@ -58,31 +58,46 @@ describe('MingleService', () => {
     });
   }
 
-  it('should get cards from mingle', () => {
-    setupConnections(backend, {
-      body: [
-        {
-          'Number': '3717',
-          'Name': 'Create a new topic page',
-          'Status': 'Dev',
-          'Owner': 'Arun',
-          'Owner 2': 'JK'
-        },
-        {
-          'Number': '3716',
-          'Name': 'Update Leaders profile photo\'s',
-          'Status': 'QA done',
-          'Owner': 'Sravanthi',
-          'Owner 2': 'Poornima'
-        }
-      ],
-      status: 200
+  describe('getCards', () => {
+    it('should get cards from mingle', () => {
+      setupConnections(backend, {
+        body: [
+          {
+            'Number': '3717',
+            'Name': 'Create a new topic page',
+            'Status': 'Dev',
+            'Owner': 'Arun',
+            'Owner 2': 'JK'
+          },
+          {
+            'Number': '3716',
+            'Name': 'Update Leaders profile photo\'s',
+            'Status': 'QA done',
+            'Owner': 'Sravanthi',
+            'Owner 2': 'Poornima'
+          }
+        ],
+        status: 200
+      });
+
+      service.getCards().subscribe((cards) => {
+        expect(cards).not.toEqual([]);
+        expect(cards[0]).toEqual(jasmine.any(Card));
+        expect(cards[1]).toEqual(jasmine.any(Card));
+      });
     });
 
-    service.getCards().subscribe((cards) => {
-      expect(cards).not.toEqual([]);
-      expect(cards[0]).toEqual(jasmine.any(Card));
-      expect(cards[1]).toEqual(jasmine.any(Card));
+    it('should handle error', () => {
+      setupConnections(backend, {
+        body: {},
+        status: 404
+      });
+
+      service.getCards().subscribe(cards => {
+        expect(cards).not.toBeDefined();
+      }, error => {
+         expect(error).toBeDefined();
+      });
     });
   });
 
