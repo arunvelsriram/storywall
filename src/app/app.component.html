@@ -3,10 +3,10 @@
 </h1>
 
 <ul>
-  <li *ngFor="let lane of lanes">
-    <p>{{lane}}</p>
+  <li *ngFor="let laneName of laneNames">
+    <p>{{laneName}}</p>
     <ul *ngIf="cards">
-      <li *ngFor="let card of cards | lane:lane">
+      <li *ngFor="let card of cards | lane:laneName">
         <p>#{{card.number}}</p>
         <p>{{card.name}}</p>
         <p>{{card.lane}}</p>

@@ -10,13 +10,13 @@ import { MingleService } from './mingle.service';
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
-  lanes: String[];
+  laneNames: String[];
   cards: Card[];
 
   constructor(private mingleService: MingleService) { }
 
   ngOnInit(): void {
-    this.lanes = this.mingleService.getLaneNames();
+    this.laneNames = this.mingleService.getLaneNames();
     this.mingleService.getCards().subscribe(cards => {
       this.cards = cards;
     }, error => {
