@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <tr>
-      <td *ngFor="let laneName of laneNames">
+      <td *ngFor="let laneName of laneNames" [ngClass]="{'empty-lane': (cards | lane:laneName).length === 0}">
         <mz-card
           *ngFor="let card of cards | lane:laneName"
           [backgroundClass]="'blue-grey darken-1'"

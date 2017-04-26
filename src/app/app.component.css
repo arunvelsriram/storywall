@@ -21,12 +21,17 @@
 	padding: 15px;
 }
 
-/deep/ tr, td {
+/deep/ tr, /deep/ td {
 	vertical-align: top;
 }
 
 /deep/ .card {
 	width: 350px;
+}
+
+/deep/ .empty-lane {
+	width: 350px;
+	display: block;
 }
 
 /deep/ .card-content .card-title {
