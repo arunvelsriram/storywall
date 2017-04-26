@@ -5,16 +5,28 @@
   </mz-badge>
 </div>
 
-<ul *ngIf=" !(hasErrors) && cards ">
-  <li *ngFor="let laneName of laneNames">
-    <p>{{laneName}}</p>
-    <ul>
-      <li *ngFor="let card of cards | lane:laneName">
-        <p>#{{card.number}}</p>
-        <p>{{card.name}}</p>
-        <p>{{card.lane}}</p>
-        <p>{{card.owner}}</p>
-      </li>
-    </ul>
-  </li>
-</ul>
+<table *ngIf=" !(hasErrors) && cards ">
+  <thead>
+    <tr>
+        <th *ngFor="let laneName of laneNames">{{laneName}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td *ngFor="let laneName of laneNames">
+        <mz-card
+          *ngFor="let card of cards | lane:laneName"
+          [backgroundClass]="'blue-grey darken-1'"
+          [textClass]="'white-text'"
+          [hoverable]="true">
+          <mz-card-title># {{card.number}}</mz-card-title>
+          <mz-card-content>{{card.name}}</mz-card-content>
+          <mz-card-action>
+            <a href="#">{{card.owner || '?'}}</a>
+            <a href="#">{{card.anotherOwner || '?'}}</a>
+          </mz-card-action>
+        </mz-card>
+      </td>
+    </tr>
+  </tbody>
+</table>

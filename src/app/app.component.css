@@ -3,3 +3,24 @@
 	height: auto;
 	line-height: 1.5;
 }
+
+/deep/ table {
+	width: auto;
+}
+
+/deep/ tr, td {
+	vertical-align: top;
+}
+
+/deep/ .card {
+	width: 350px;
+}
+
+/deep/ .card-content .card-title {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+/deep/ .card-content p {
+	font-size: 24px;
+}
