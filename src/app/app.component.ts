@@ -9,9 +9,10 @@ import { MingleService } from './mingle.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app works!';
+  title = 'Story Wall';
   laneNames: String[];
   cards: Card[];
+  hasErrors: Boolean = false;
 
   constructor(private mingleService: MingleService) { }
 
@@ -20,9 +21,8 @@ export class AppComponent implements OnInit {
     this.mingleService.getCards().subscribe(cards => {
       this.cards = cards;
     }, error => {
+      this.hasErrors = true;
       console.error(error);
-      console.error('Please login to Mingle!');
-      console.error('If you are already logged in pease check the configuration (config.ts).');
     });
   }
 }

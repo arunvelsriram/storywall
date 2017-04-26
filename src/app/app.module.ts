@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { JsonpModule } from '@angular/http';
+import { MaterializeModule } from 'ng2-materialize';
 
 import { AppComponent } from './app.component';
 import { LanePipe } from './lane.pipe';
@@ -16,7 +17,8 @@ import { MqlEncoderService } from './mql-encoder.service';
   imports: [
     BrowserModule,
     FormsModule,
-    JsonpModule
+    JsonpModule,
+    MaterializeModule.forRoot()
   ],
   providers: [
     MingleService,

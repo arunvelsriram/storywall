@@ -1,11 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<div *ngIf="hasErrors" class="row error">
+  <mz-badge
+    [caption]="'Please login to Mingle! If you are already logged in pease check the configuration (config.ts).'"
+    [badgeClass]="'col s12 red'">
+  </mz-badge>
+</div>
 
-<ul>
+<ul *ngIf=" !(hasErrors) && cards ">
   <li *ngFor="let laneName of laneNames">
     <p>{{laneName}}</p>
-    <ul *ngIf="cards">
+    <ul>
       <li *ngFor="let card of cards | lane:laneName">
         <p>#{{card.number}}</p>
         <p>{{card.name}}</p>
