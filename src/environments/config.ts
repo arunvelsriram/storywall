@@ -3,7 +3,7 @@ export const CONFIG = {
 	mingleApiUrl: 'https://tw-digital.mingle.thoughtworks.com/api/v2/projects/tw_dot_com/cards/execute_mql.json',
 
 	// Lanes in your Mingle wall
-	laneNames: ['Next', 'A & D', 'A & D done', 'Dev', 'Dev done', 'QA', 'QA done', 'Feature Toggle Off', 'Blocked on external dependencies', 'Blocked'],
+	laneNames: ['Next', 'A & D', 'A & D done', 'Dev', 'Dev done', 'QA', 'QA done', 'Feature Toggle Off', 'Done (Deployed to Live)', 'Blocked on external dependencies', 'Blocked'],
 
 	// Write a MQL query to return cards (that are shown in your current Mingle wall)
 	// https://www.thoughtworks.com/mingle/docs/mql_reference.html
