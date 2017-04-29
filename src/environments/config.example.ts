@@ -1,6 +1,6 @@
 export const CONFIG = {
 	// Mingle MQL API URL
-	mingleApiUrl: 'https://tw-digital.mingle.thoughtworks.com/api/v2/projects/tw_dot_com/cards/execute_mql.json',
+	mingleApiUrl: 'https://HOST:PORT/api/v2/projects/PROJECT_IDENTIFIER/cards/execute_mql.json',
 
 	// Lanes in your Mingle wall
 	laneNames: ['Next', 'A & D', 'A & D done', 'Dev', 'Dev done', 'QA', 'QA done', 'Feature Toggle Off', 'Done (Deployed to Live)', 'Blocked on external dependencies', 'Blocked'],
