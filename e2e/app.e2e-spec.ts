@@ -7,8 +7,8 @@ describe('storywall App', function() {
     page = new StorywallPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display page title as Story Wall', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getTitle()).toEqual('Story Wall');
   });
 });
