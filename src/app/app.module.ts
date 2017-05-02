@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { LanePipe } from './lane.pipe';
 import { MingleService } from './mingle.service';
 import { MqlEncoderService } from './mql-encoder.service';
+import { StickyTableHeaderDirective } from './sticky-table-header.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LanePipe
+    LanePipe,
+    StickyTableHeaderDirective
   ],
   imports: [
     BrowserModule,

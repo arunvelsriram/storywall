@@ -5,7 +5,7 @@
   </mz-badge>
 </div>
 
-<table *ngIf=" !(hasErrors) && cards ">
+<table stickyTableHeader *ngIf="!(hasErrors) && cards">
   <thead>
     <tr>
         <th *ngFor="let laneName of laneNames" class="center-align">{{laneName}}</th>
