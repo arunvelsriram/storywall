@@ -1,8 +1,12 @@
 # Storywall
 
-A clear, physical-like story wall for ThoughtWorks Mingle.
+A clear, physical-like story wall for [ThoughtWorks Mingle](https://www.thoughtworks.com/mingle/).
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
+## Config
+
+App needs certain configuration to fetch cards from Mingle. Before starting the app, duplicate the example config file [config.example.ts](src/environments/config.example.ts) as `config.ts` and modify it as per your need.
+
+This project was generated with [angular-cli](https://github.com/angular/angular-cli).
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
