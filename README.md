@@ -2,6 +2,8 @@
 
 A clear, physical-like story wall for [ThoughtWorks Mingle](https://www.thoughtworks.com/mingle/).
 
+![Demo of storywall](demo.gif "Demo")
+
 ## Config
 
 App needs certain configuration to fetch cards from Mingle. Before starting the app, duplicate the example config file [config.example.ts](src/environments/config.example.ts) as `config.ts` and modify it as per your need.
